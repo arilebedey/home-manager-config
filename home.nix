@@ -1,7 +1,4 @@
 { inputs, config, pkgs, ... }:
-let
-  rofiTheme = (import ./rofi/theme.nix { inherit pkgs config; });
-in 
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -26,7 +23,6 @@ in
     pkgs.hyprpaper
     pkgs.eww
     pkgs.bat
-
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -74,24 +70,9 @@ in
 # bindkey "^H" backward-delete-word
   programs.zsh = { 
     enable = true;
-    enableAutosuggestions = true;
+    autosuggestion.enable = true;
     # zsh-autoenv.enable = true;
     syntaxHighlighting.enable = true;
-  };
-
-  programs.rofi = {
-    enable = true;
-    theme = rofiTheme;
-    plugins = [pkgs.rofi-emoji];
-    extraConfig = {
-      modi = "drun";
-      show-icons = true;
-      drun-display-format = "{icon} {name}";
-      disable-history = false;
-      hide-scrollbar = true;
-      display-drun = "   Apps ";
-      sidebar-mode = true;
-    };
   };
 
   gtk.enable = true;
