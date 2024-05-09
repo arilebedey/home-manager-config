@@ -1,5 +1,12 @@
-{ inputs, config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
+let
+in 
 {
+  imports = [
+    ./shell/zsh.nix
+    ./shell/starship.nix
+    #./desktop/hyprland.nix
+  ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "ari";
@@ -13,16 +20,39 @@
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
   home.stateVersion = "23.11"; # Please read the comment before changing.
+  
+  nixpkgs.config.allowUnfree = true;
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
-    # # Adds the 'hello' command to your environment. It prints a friendly
-    # # "Hello, world!" when run.
+    pkgs.jdk17
+    pkgs.swayidle
+    pkgs.davinci-resolve-studio
     pkgs.hello
     pkgs.hyprpaper
     pkgs.eww
     pkgs.bat
+    pkgs.eza
+    pkgs.ytfzf
+    pkgs.ueberzugpp
+    pkgs.bemoji
+    pkgs.zinit
+    pkgs.element-desktop
+    pkgs.hyprpicker
+    pkgs.zathura
+    #pkgs.nvim-pkg
+    pkgs.vimPlugins.nvchad
+    pkgs.ncdu
+    # android-studio......
+    pkgs.android-studio
+    pkgs.libpng
+    #
+    pkgs.jetbrains.idea-community
+    pkgs.unzip
+    pkgs.ffmpeg
+    pkgs.mediainfo
+
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -37,7 +67,9 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
   ];
-
+  home.extraProfileCommands = ''
+   ln -s ${pkgs.jdk17}/bin/java $out/bin/java17
+  '';
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
@@ -64,19 +96,35 @@
   #
   #  /etc/profiles/per-user/ari/etc/profile.d/hm-session-vars.sh
   #
-  home.sessionVariables = {
-    # EDITOR = "emacs";
-  };
-# bindkey "^H" backward-delete-word
-  programs.zsh = { 
+  programs.git = {
     enable = true;
-    autosuggestion.enable = true;
-    # zsh-autoenv.enable = true;
-    syntaxHighlighting.enable = true;
+    userName = "arilebedey";
+    userEmail = "34816154+arilebedey@users.noreply.github.com";
   };
+
+  home.sessionVariables = {
+    EDITOR = "nvim";
+  };
+
+  programs.zoxide.enableZshIntegration = true;
+  programs.zoxide.enable = true;
+
+  programs.neovim.enable = true;
 
   gtk.enable = true;
   qt.enable = true;
+
+  xdg.desktopEntries.davinci-resolve-studio = {
+    name = "Davinci Resolve Studio";
+    # desktopName = "resolve";
+    prefersNonDefaultGPU = true;
+    exec = "davinci-resolve-studio %u";
+    # exec = "DRI_PRIME=1 davinci-resolve %u";
+    terminal = false;
+    type = "Application";
+    icon = "/home/ari/Downloads/DaVinci_Resolve_Studio.png";
+    # mimeTypes="x-scheme-handler/x-resolveproj";
+  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
