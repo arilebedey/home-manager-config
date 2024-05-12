@@ -53,6 +53,7 @@ in
     # pkgs.ffmpeg
     pkgs.mediainfo
     pkgs.obs-studio
+    pkgs.gh
 
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
@@ -101,6 +102,10 @@ in
     enable = true;
     userName = "arilebedey";
     userEmail = "34816154+arilebedey@users.noreply.github.com";
+    extraConfig = {
+      init.defaultBranch = "main";
+      safe.directory = "/etc/nixos/";
+    };
   };
 
   home.sessionVariables = {
