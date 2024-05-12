@@ -50,8 +50,9 @@ in
     #
     pkgs.jetbrains.idea-community
     pkgs.unzip
-    pkgs.ffmpeg
+    # pkgs.ffmpeg
     pkgs.mediainfo
+    pkgs.obs-studio
 
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
