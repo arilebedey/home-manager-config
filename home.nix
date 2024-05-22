@@ -5,6 +5,7 @@ in
   imports = [
     ./shell/zsh.nix
     ./shell/starship.nix
+    ./desktop/nvim/nvim.nix
     #./desktop/hyprland.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
@@ -26,6 +27,7 @@ in
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
+    pkgs.vscode
     pkgs.jdk17
     pkgs.swayidle
     pkgs.davinci-resolve-studio
@@ -41,7 +43,7 @@ in
     pkgs.element-desktop
     pkgs.hyprpicker
     pkgs.zathura
-    #pkgs.nvim-pkg
+    # pkgs.nvim-pkg
     pkgs.vimPlugins.nvchad
     pkgs.ncdu
     # android-studio......
@@ -108,14 +110,8 @@ in
     };
   };
 
-  home.sessionVariables = {
-    EDITOR = "nvim";
-  };
-
   programs.zoxide.enableZshIntegration = true;
   programs.zoxide.enable = true;
-
-  programs.neovim.enable = true;
 
   gtk.enable = true;
   qt.enable = true;
