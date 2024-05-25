@@ -85,6 +85,13 @@
 
       plenary-nvim
       vim-tmux-navigator
+      nvim-web-devicons
+      which-key-nvim
+
+      {
+        plugin = nvim-tree-lua;
+        config = toLuaFile ./nvim/plugin/nvimtree.lua;
+      }
 	
       # {
       #   plugin = vimPlugins.own-onedark-nvim;
