@@ -30,7 +30,7 @@ opt.termguicolors = true
 opt.backspace = "indent,eol,start"
 
 -- SPLIT WINDOWS
-opt.splitright = true
+opt.splitright = false
 opt.splitbelow = true
 
 vim.o.updatetime = 300

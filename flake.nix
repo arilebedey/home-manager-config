@@ -14,9 +14,12 @@
       # url = "github:nix-community/kickstart-nix.nvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # vim-maximizer
+    plugin-maximizer.url = "github:szw/vim-maximizer";
+    plugin-maximizer.flake = false;
   };
 
-  outputs = { nixpkgs, home-manager, nvim-nix, ... }:
+  outputs = { nixpkgs, home-manager, nvim-nix, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -43,6 +46,7 @@
         # the path to your home.nix.
         modules = [ ./home.nix ];
 
+        extraSpecialArgs = { inherit inputs; };
         # nixpkgs.overlays = [
         #   # replace <kickstart-nix-nvim> with the name you chose
         #   nvim-nix.overlays.default

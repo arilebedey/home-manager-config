@@ -1,5 +1,18 @@
 { config, pkgs, inputs, ... }:
 {
+  nixpkgs = {
+    overlays = [
+      (final: prev: {
+        vimPlugins = prev.vimPlugins // {
+          own-maximize-vim = prev.vimUtils.buildVimPlugin {
+            name = "vim-maximizer";
+            src = inputs.plugin-maximizer;
+          };
+        };
+      })
+    ];
+  };
+
   home.sessionVariables = {
     EDITOR = "nvim";
   };
@@ -27,10 +40,10 @@
 
     plugins = with pkgs.vimPlugins; [
 
-      {
-        plugin = nvim-lspconfig;
-        config = toLuaFile ./nvim/plugin/lsp.lua;
-      }
+      # {
+      #   plugin = nvim-lspconfig;
+      #   config = toLuaFile ./nvim/plugin/lsp.lua;
+      # }
 
 
       {
@@ -41,10 +54,10 @@
       neodev-nvim
 
       nvim-cmp 
-      {
-        plugin = nvim-cmp;
-        config = toLuaFile ./nvim/plugin/cmp.lua;
-      }
+      # {
+      #   plugin = nvim-cmp;
+      #   config = toLuaFile ./nvim/plugin/cmp.lua;
+      # }
 
       {
         plugin = telescope-nvim;
@@ -66,6 +79,23 @@
       {
         plugin = (nvim-treesitter.withPlugins (p: [
           p.tree-sitter-nix
+          p.tree-sitter-javascript
+          p.tree-sitter-tsx
+          p.tree-sitter-yaml
+          p.tree-sitter-typescript
+          p.tree-sitter-toml
+          p.tree-sitter-css
+          p.tree-sitter-html
+          p.tree-sitter-prisma
+          p.tree-sitter-markdown
+          p.tree-sitter-markdown-inline
+          p.tree-sitter-graphql
+          p.tree-sitter-bash
+          p.tree-sitter-dockerfile
+          p.tree-sitter-gitignore
+          p.tree-sitter-query
+          p.tree-sitter-vimdoc
+          p.tree-sitter-c
           p.tree-sitter-vim
           p.tree-sitter-bash
           p.tree-sitter-lua
@@ -74,7 +104,7 @@
         ]));
         config = toLuaFile ./nvim/plugin/treesitter.lua;
       }
-      
+
 
       vim-nix
 	  everforest
@@ -82,6 +112,7 @@
       plenary-nvim
       vim-tmux-navigator
       nvim-web-devicons
+      nvim-ts-context-commentstring
 
       {
         plugin = comment-nvim;
@@ -96,10 +127,37 @@
       }
 
       {
+        plugin = auto-session;
+        config = toLuaFile ./nvim/plugin/auto-session.lua;
+      }
+
+      {
         plugin = nvim-tree-lua;
         config = toLuaFile ./nvim/plugin/nvimtree.lua;
       }
-	
+
+      {
+        plugin = bufferline-nvim;
+        config = toLuaFile ./nvim/plugin/bufferline.lua;
+      }
+
+      {
+        plugin = lualine-nvim;
+        config = toLuaFile ./nvim/plugin/lualine.lua;
+      }
+
+      {
+        plugin = dressing-nvim;
+        config = toLuaFile ./nvim/plugin/dressing.lua;
+      }
+
+      {
+        plugin = own-maximize-vim;
+        config = toLuaFile ./nvim/plugin/vim-maximizer.lua;
+      }
+
+      nvim-ts-autotag
+
       # {
       #   plugin = vimPlugins.own-onedark-nvim;
       #   config = "colorscheme onedark";

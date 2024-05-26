@@ -47,4 +47,3 @@ kms("n", "<C-f>r", "<cmd>NvimTreeRefresh<CR>", { desc = "[F]ile explorer [R]efre
 -- kms("n", "<leader>en", "<cmd>NvimTreeToggle<CR>", { desc = "[F]ile explorer" })
 -- kms("n", "<leader>ew", "<cmd>NvimTreeFindFileToggle<CR>", { desc = "[F]ile explorer on [W]ord" })
 -- kms("n", "<leader>fr", "<cmd>NvimTreeRefresh<CR>", { desc = "[F]ile explorer [R]efresh" })
-kms("n", "s", "j", { desc = "[F]ile explorer [Refresh" })
