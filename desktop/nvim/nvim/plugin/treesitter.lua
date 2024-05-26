@@ -1,4 +1,4 @@
--- Run :TSUpdate everytime you update the plugin/flake
+-- Run :TSUpdate everytime you update the plugin/flake.
 --
 
 local treesitter = require("nvim-treesitter.configs")

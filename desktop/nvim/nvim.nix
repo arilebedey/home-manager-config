@@ -158,6 +158,16 @@
 
       nvim-ts-autotag
 
+      {
+        plugin = project-nvim;
+        config = toLuaFile ./nvim/plugin/project.lua;
+      }
+
+      {
+        plugin = indent-blankline-nvim;
+        config = toLuaFile ./nvim/plugin/indent-blankline.lua;
+      }
+
       # {
       #   plugin = vimPlugins.own-onedark-nvim;
       #   config = "colorscheme onedark";
