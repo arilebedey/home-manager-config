@@ -1,0 +1,2 @@
+event = { "BufReadPre", "BufNewFile" },
+

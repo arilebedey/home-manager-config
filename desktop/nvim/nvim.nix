@@ -32,10 +32,6 @@
         config = toLuaFile ./nvim/plugin/lsp.lua;
       }
 
-      {
-        plugin = comment-nvim;
-        config = toLua "require(\"Comment\").setup()";
-      }
 
       {
         plugin = everforest;
@@ -86,7 +82,18 @@
       plenary-nvim
       vim-tmux-navigator
       nvim-web-devicons
-      which-key-nvim
+
+      {
+        plugin = comment-nvim;
+        #event = toLua "{ \"BufReadPre\", \"BufNewFile\" },";
+        #config = toLua "require(\"Comment\").setup()";
+        config = toLuaFile ./nvim/plugin/comment.lua;
+      }
+
+      {
+        plugin = which-key-nvim;
+        config = toLuaFile ./nvim/plugin/which-key.lua;
+      }
 
       {
         plugin = nvim-tree-lua;

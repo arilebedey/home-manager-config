@@ -1,13 +1,25 @@
-require('telescope').setup({
-	extensions = {
-    	fzf = {
-      	fuzzy = true,                    -- false will only do exact matching
-      	override_generic_sorter = true,  -- override the generic sorter
-      	override_file_sorter = true,     -- override the file sorter
-      	case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
-                                       -- the default case_mode is "smart_case"
-    	}
-  	}
+local telescope = require('telescope')
+local actions = require("telescope.actions")
+
+telescope.setup({
+	defaults = {
+		path_display = { "smart" },
+		mappings = {
+			i = {
+				["<C-s>"] = actions.move_selection_previous,
+				["<C-t>"] = actions.move_selection_next,
+				["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+			},
+		},
+	},
 })
 
 require('telescope').load_extension('fzf')
+
+-- KEYMAPS
+local kms = vim.keymap.set
+
+kms("n", "<leader>ff", "<cmd>Telescope find_files<CR>", { desc = "[F]uzzy find in CWD" })
+kms("n", "<leader>fr", "<cmd>Telescope oldfiles<CR>", { desc = "[F]uzzy find [R]ecent files" })
+kms("n", "<leader>fs", "<cmd>Telescope live_grep<CR>", { desc = "[F]uzzy find [S]tring in CWD" })
+kms("n", "<leader>fc", "<cmd>Telescope grep_string<CR>", { desc = "[F]uzzy find string under [C]ursor" })
