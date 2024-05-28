@@ -53,11 +53,19 @@
 
       neodev-nvim
 
+      cmp-buffer
+      cmp-path
+      cmp_luasnip
+      friendly-snippets
+      lspkind-nvim
+      #cmp-fuzzy-buffer
+      #cmp-fuzzy-path
+      #fuzzy-nvim
       nvim-cmp 
-      # {
-      #   plugin = nvim-cmp;
-      #   config = toLuaFile ./nvim/plugin/cmp.lua;
-      # }
+      {
+        plugin = nvim-cmp;
+        config = toLuaFile ./nvim/plugin/cmp.lua;
+      }
 
       {
         plugin = telescope-nvim;
@@ -66,7 +74,6 @@
 
       telescope-fzf-native-nvim
 
-      cmp_luasnip
       cmp-nvim-lsp
 
       luasnip
@@ -167,6 +174,18 @@
         plugin = indent-blankline-nvim;
         config = toLuaFile ./nvim/plugin/indent-blankline.lua;
       }
+
+      {
+        plugin = nvim-autopairs;
+        config = toLuaFile ./nvim/plugin/autopairs.lua;
+      }
+      
+      {
+        plugin = todo-comments-nvim;
+        config = toLuaFile ./nvim/plugin/todo.lua;
+      }
+
+
 
       # {
       #   plugin = vimPlugins.own-onedark-nvim;

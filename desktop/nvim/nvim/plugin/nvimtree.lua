@@ -2,17 +2,21 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 local function my_on_attach(bufnr)
-  local api = require "nvim-tree.api"
+    local api = require('nvim-tree.api')
 
-  -- default mappings
-  api.config.mappings.default_on_attach(bufnr)
+    -- local function opts(desc)
+    --   return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+    -- end
 
-  -- custom mappings
-  vim.keymap.del('n', 's')
+    api.config.mappings.default_on_attach(bufnr)
+    vim.keymap.del('n', 's', { buffer = bufnr })
+
+    -- your removals and mappings go here
 end
 
+
 require("nvim-tree").setup({
-	-- on_attach = my_on_attach,
+	on_attach = my_on_attach,
 	view = {
 		width = 35,
 		relativenumber = true,
