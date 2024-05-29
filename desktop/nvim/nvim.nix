@@ -186,6 +186,10 @@
       }
 
 
+      {
+        plugin = substitute-nvim;
+        config = toLuaFile ./nvim/plugin/substitute.lua;
+      }
 
       # {
       #   plugin = vimPlugins.own-onedark-nvim;

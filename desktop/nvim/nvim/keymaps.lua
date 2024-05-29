@@ -1,5 +1,5 @@
 vim.g.mapleader = ' '
-local keymap = vim.keymap
+-- local keymap = vim.keymap
 local kms = vim.keymap.set
 
 -- FILES
@@ -15,7 +15,7 @@ kms("n", "t", "j")
 kms("v", "t", "j")
 
 -- SEARCH
-keymap.set("n", "<ENTER>", ":nohl<CR>")
+kms("n", "<ENTER>", ":nohl<CR>")
 
 -- WINDOWS
 kms("n", "<leader>wl", "<C-w>v", { desc = "[W]indow [L]eft" }) 
@@ -48,4 +48,4 @@ kms("n", "<leader>fp", "<cmd>Telescope projects<CR>", { desc = "[F]uzzy find [P]
 -- TODO
 kms("n", "<leader>cs", "<cmd>TodoTelescope<CR>", { desc = "TOOD [C]omment [S]ee list" })
 
-
+-- SUBSTITUTE
