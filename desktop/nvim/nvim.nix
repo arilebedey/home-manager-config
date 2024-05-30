@@ -36,15 +36,16 @@
 
     extraPackages = with pkgs; [
       lua-language-server
+      nodePackages_latest.typescript-language-server
+      typescript
+      vscode-langservers-extracted
+      tailwindcss-language-server
+      nodePackages_latest.pyright
     ];
 
     plugins = with pkgs.vimPlugins; [
 
-      # {
-      #   plugin = nvim-lspconfig;
-      #   config = toLuaFile ./nvim/plugin/lsp.lua;
-      # }
-
+      cmp-nvim-lsp
 
       {
         plugin = everforest;
@@ -62,6 +63,7 @@
       #cmp-fuzzy-path
       #fuzzy-nvim
       nvim-cmp 
+
       {
         plugin = nvim-cmp;
         config = toLuaFile ./nvim/plugin/cmp.lua;
@@ -74,11 +76,8 @@
 
       telescope-fzf-native-nvim
 
-      cmp-nvim-lsp
-
       luasnip
       friendly-snippets
-
 
       lualine-nvim
       nvim-web-devicons
@@ -191,10 +190,25 @@
         config = toLuaFile ./nvim/plugin/substitute.lua;
       }
 
+      {
+        plugin = nvim-surround;
+        config = toLua "require(\"nvim-surround\").setup()";
+        # cs"'
+        # ds"
+        # ysiw
+        # or t for tags!
+      }
+
       # {
       #   plugin = vimPlugins.own-onedark-nvim;
       #   config = "colorscheme onedark";
       # }
+
+      {
+        plugin = nvim-lspconfig;
+        config = toLuaFile ./nvim/plugin/lsp.lua;
+      }
+
     ];
   };
 }

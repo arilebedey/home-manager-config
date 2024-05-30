@@ -2,6 +2,9 @@ vim.g.mapleader = ' '
 -- local keymap = vim.keymap
 local kms = vim.keymap.set
 
+-- MISC
+kms("n", "vV", "Vp")
+
 -- FILES
 kms("n", "<leader>ia", ":wq<CR>")
 kms("n", "<leader>ii", ":w<CR>")
