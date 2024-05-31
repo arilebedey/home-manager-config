@@ -41,6 +41,10 @@
       vscode-langservers-extracted
       tailwindcss-language-server
       nodePackages_latest.pyright
+      nodePackages_latest.prettier
+      stylua
+      black
+      isort
     ];
 
     plugins = with pkgs.vimPlugins; [
@@ -184,7 +188,6 @@
         config = toLuaFile ./nvim/plugin/todo.lua;
       }
 
-
       {
         plugin = substitute-nvim;
         config = toLuaFile ./nvim/plugin/substitute.lua;
@@ -207,6 +210,16 @@
       {
         plugin = nvim-lspconfig;
         config = toLuaFile ./nvim/plugin/lsp.lua;
+      }
+
+      {
+        plugin = trouble-nvim;
+        config = toLuaFile ./nvim/plugin/trouble.lua;
+      }
+
+      {
+        plugin = conform-nvim;
+        config = toLuaFile ./nvim/plugin/formatting.lua;
       }
 
     ];

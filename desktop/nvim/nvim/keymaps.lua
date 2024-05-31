@@ -51,3 +51,11 @@ kms("n", "<leader>fp", "<cmd>Telescope projects<CR>", { desc = "[F]uzzy find [P]
 -- TODO
 kms("n", "<leader>cs", "<cmd>TodoTelescope<CR>", { desc = "TOOD [C]omment [S]ee list" })
 
+-- TROUBLE
+kms("n", "<leader>xx", "<cmd>TroubleToggle<CR>", { desc = "Open/close trouble list" })
+kms("n", "<leader>xp", "<cmd>TroubleToggle workspace_diagnostics<CR>", { desc = "Open diagnostics for [P]roject" })
+kms("n", "<leader>xb", "<cmd>TroubleToggle document_diagnostics<CR>", { desc = "Open diagnostics for [B]uffer" })
+kms("n", "<leader>xq", "<cmd>TroubleToggle quickfix<CR>", { desc = "Open trouble quickfix list" })
+kms("n", "<leader>xl", "<cmd>TroubleToggle loclist<CR>", { desc = "Open trouble location list" })
+kms("n", "<leader>xt", "<cmd>TodoTrouble<CR>", { desc = "Open [T]odos in trouble" })
+
