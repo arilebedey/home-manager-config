@@ -47,7 +47,7 @@
       # nib="sudo nixos-rebuild build --flake /etc/nixos/";
       nib="nixos-rebuild build --flake /home/ari/.config/nix-config/nixos/";
       # nis="sudo nixos-rebuild switch --flake /etc/nixos/";
-      nis="nixos-rebuild switch --flake /home/ari/.config/nix-config/nixos/";
+      nis="sudo nixos-rebuild switch --flake /home/ari/.config/nix-config/nixos/";
       ec="nvim /home/ari/.config/nix-config/nixos/configuration.nix";
       # ec="sudoedit /home/ari/.config/nix-config/nixos/configuration.nix";
       bt="bluetoothctl";

@@ -1,5 +1,5 @@
 -- dependencies = { "nvim-tree/nvim-web-devicons", "folke/todo-comments.nvim" },
-local kms = vim.keymap.set
+-- local kms = vim.keymap.set
 
 -- kms("n", "<leader>xx", "<cmd>TroubleToggle<CR>", { desc = "Open/close trouble list" })
 -- DIAGS ACROSS PROJECT

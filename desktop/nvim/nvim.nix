@@ -45,6 +45,8 @@
       stylua
       black
       isort
+      eslint_d
+      pylint
     ];
 
     plugins = with pkgs.vimPlugins; [
@@ -220,6 +222,16 @@
       {
         plugin = conform-nvim;
         config = toLuaFile ./nvim/plugin/formatting.lua;
+      }
+
+      {
+        plugin = nvim-lint;
+        config = toLuaFile ./nvim/plugin/linting.lua;
+      }
+
+      {
+        plugin = gitsigns-nvim;
+        config = toLuaFile ./nvim/plugin/gitsigns.lua;
       }
 
     ];
