@@ -1,3 +1,6 @@
+vim.opt.termguicolors = true
+require("bufferline").setup({})
+
 -- opts = {
 -- 	options = {
 -- 		mode = "tabs",

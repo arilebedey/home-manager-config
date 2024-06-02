@@ -3,8 +3,9 @@ let
 in 
 {
   imports = [
-    ./shell/zsh.nix
+    ./shell/zsh/zsh.nix
     ./shell/starship.nix
+    ./shell/tmux/tmux.nix
     ./desktop/nvim/nvim.nix
     #./desktop/hyprland.nix
   ];
@@ -42,7 +43,6 @@ in
     pkgs.zinit
     pkgs.element-desktop
     pkgs.hyprpicker
-    pkgs.zathura
     # pkgs.nvim-pkg
     pkgs.vimPlugins.nvchad
     pkgs.ncdu
@@ -57,6 +57,8 @@ in
     pkgs.obs-studio
     pkgs.gh
     pkgs.foot
+    pkgs.nodejs_20
+    pkgs.qpwgraph
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -108,6 +110,13 @@ in
       init.defaultBranch = "main";
       safe.directory = "/etc/nixos/";
     };
+  };
+
+  programs.zathura = {
+    enable = true;
+    extraConfig = ''
+      set guioptions none
+    '';
   };
 
   programs.zoxide.enableZshIntegration = true;

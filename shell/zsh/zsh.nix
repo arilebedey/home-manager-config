@@ -17,7 +17,7 @@
     syntaxHighlighting.enable = true;
     enableCompletion = true;
     initExtra = ''
-      source ~/fzf2nvim.sh
+      source /home/ari/.config/nix-config/home-manager/shell/zsh/fzf2nvim.sh
       bindkey "^[[1;5C" forward-word
       bindkey "^[[1;5D" backward-word
       bindkey '^H' backward-kill-word
