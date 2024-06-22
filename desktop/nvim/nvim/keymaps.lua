@@ -33,7 +33,9 @@ kms("n", "<leader>tn", ":tabnew<CR>", { desc = "[T]ab [N]ew" })
 kms("n", "<leader>tc", ":tabclose<CR>", { desc = "[T]ab [C]lose" })
 kms("n", "<leader>ts", ":tabnew %<CR>", { desc = "[T]ab [S]end Current File" })
 kms("n", "<leader>tg", ":tabn<CR>", { desc = "Next Tab" })
-kms("n", "gp", ":tabp<CR>", { desc = "Previous Tab" })
+kms("n", "gt", ":BufferLineCycleNext<CR>", { desc = "Next Tab" })
+kms("n", "gp", ":BufferLineCyclePrev<CR>", { desc = "Previous Tab" })
+kms("n", "<leader>gg", ":bdelete<CR>", { desc = "Close Tab" })
 
 -- AUTO-SESSION
 kms("n", "<leader>sr", "<cmd>SessionRestore<CR>", { desc = "[S]ession [R]estore" })
@@ -95,3 +97,11 @@ end, { desc = "[D]iff this ~" })
 
 -- Text object
 kms({ "o", "x" }, "h", ":<C-U>Gitsigns select_hunk<CR>", { desc = "Gitsigns select hunk" })
+
+-- Copy path
+function insertFullPath()
+	local filepath = vim.fn.expand("%")
+	vim.fn.setreg("+", filepath) -- write to clippoard
+end
+
+vim.keymap.set("n", "<leader>pc", insertFullPath, { noremap = true, silent = true })

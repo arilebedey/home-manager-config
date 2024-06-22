@@ -52,13 +52,15 @@ in
     #
     pkgs.jetbrains.idea-community
     pkgs.unzip
-    # pkgs.ffmpeg
     pkgs.mediainfo
     pkgs.obs-studio
     pkgs.gh
     pkgs.foot
     pkgs.nodejs_20
     pkgs.qpwgraph
+    pkgs.mpv
+    pkgs.ffmpeg
+    pkgs.discord
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
