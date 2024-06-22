@@ -3,14 +3,14 @@
   programs.tmux = {
     enable = true;
     # enable = false;
+    plugins = with pkgs.tmuxPlugins; [
+      vim-tmux-navigator
+      resurrect
+      continuum
+      # power-theme
+    ];
     extraConfig = ''
       ${builtins.readFile ./tmux.conf}
     '';
-    plugins = with pkgs.tmuxPlugins; [
-      vim-tmux-navigator
-    ];
   };
-
-  # home.packages = with pkgs; [
-  #   tmuxPlugins.  ];
 }
