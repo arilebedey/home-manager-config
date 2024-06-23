@@ -85,7 +85,6 @@
       luasnip
       friendly-snippets
 
-      lualine-nvim
       nvim-web-devicons
 
       {
@@ -137,6 +136,11 @@
         plugin = which-key-nvim;
         config = toLuaFile ./nvim/plugin/which-key.lua;
       }
+
+      # {
+      #   plugin = vim-startify;
+      #   config = toLuaFile ./nvim/plugin/vim-startify.lua;
+      # }
 
       {
         plugin = auto-session;

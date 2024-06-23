@@ -41,6 +41,11 @@ kms("n", "<leader>gg", ":bdelete<CR>", { desc = "Close Tab" })
 kms("n", "<leader>sr", "<cmd>SessionRestore<CR>", { desc = "[S]ession [R]estore" })
 kms("n", "<leader>ss", "<cmd>SessionSave<CR>", { desc = "[S]ession [S]ave" })
 kms("n", "<leader>sd", "<cmd>SessionDelete<CR>", { desc = "[S]ession [D]elete" })
+-- Set mapping for searching a session.
+-- ⚠️ This will only work if Telescope.nvim is installed
+kms("n", "<C-s>", require("auto-session.session-lens").search_session, {
+	noremap = true,
+})
 
 -- TELESCOPE KEYMAPS
 kms("n", "<leader>ff", "<cmd>Telescope find_files<CR>", { desc = "[F]uzzy find in CWD" })

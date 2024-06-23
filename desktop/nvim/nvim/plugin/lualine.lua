@@ -11,41 +11,42 @@ local colors = {
 	inactive_bg = "#2c3043",
 }
 local luatheme = {
-	  normal = {
-        a = { bg = colors.blue, fg = colors.bg, gui = "bold" },
-        b = { bg = colors.bg, fg = colors.fg },
-        c = { bg = colors.bg, fg = colors.fg },
-      },
-      insert = {
-        a = { bg = colors.green, fg = colors.bg, gui = "bold" },
-        b = { bg = colors.bg, fg = colors.fg },
-        c = { bg = colors.bg, fg = colors.fg },
-      },
-      visual = {
-        a = { bg = colors.violet, fg = colors.bg, gui = "bold" },
-        b = { bg = colors.bg, fg = colors.fg },
-        c = { bg = colors.bg, fg = colors.fg },
-      },
-      command = {
-        a = { bg = colors.yellow, fg = colors.bg, gui = "bold" },
-        b = { bg = colors.bg, fg = colors.fg },
-        c = { bg = colors.bg, fg = colors.fg },
-      },
-      replace = {
-        a = { bg = colors.red, fg = colors.bg, gui = "bold" },
-        b = { bg = colors.bg, fg = colors.fg },
-        c = { bg = colors.bg, fg = colors.fg },
-      },
-      inactive = {
-        a = { bg = colors.inactive_bg, fg = colors.semilightgray, gui = "bold" },
-        b = { bg = colors.inactive_bg, fg = colors.semilightgray },
-        c = { bg = colors.inactive_bg, fg = colors.semilightgray },
-      },
+	normal = {
+		a = { bg = colors.blue, fg = colors.bg, gui = "bold" },
+		b = { bg = colors.bg, fg = colors.fg },
+		c = { bg = colors.bg, fg = colors.fg },
+	},
+	insert = {
+		a = { bg = colors.green, fg = colors.bg, gui = "bold" },
+		b = { bg = colors.bg, fg = colors.fg },
+		c = { bg = colors.bg, fg = colors.fg },
+	},
+	visual = {
+		a = { bg = colors.violet, fg = colors.bg, gui = "bold" },
+		b = { bg = colors.bg, fg = colors.fg },
+		c = { bg = colors.bg, fg = colors.fg },
+	},
+	command = {
+		a = { bg = colors.yellow, fg = colors.bg, gui = "bold" },
+		b = { bg = colors.bg, fg = colors.fg },
+		c = { bg = colors.bg, fg = colors.fg },
+	},
+	replace = {
+		a = { bg = colors.red, fg = colors.bg, gui = "bold" },
+		b = { bg = colors.bg, fg = colors.fg },
+		c = { bg = colors.bg, fg = colors.fg },
+	},
+	inactive = {
+		a = { bg = colors.inactive_bg, fg = colors.semilightgray, gui = "bold" },
+		b = { bg = colors.inactive_bg, fg = colors.semilightgray },
+		c = { bg = colors.inactive_bg, fg = colors.semilightgray },
+	},
 }
 
-    -- configure lualine with modified theme
+-- configure lualine with modified theme
 lualine.setup({
-  options = {
-	theme = luatheme,
-  },
+	options = {
+		theme = luatheme,
+	},
+	sections = { lualine_c = { require("auto-session.lib").current_session_name } },
 })
