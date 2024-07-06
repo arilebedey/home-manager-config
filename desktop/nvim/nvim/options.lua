@@ -1,20 +1,20 @@
 local opt = vim.opt
 
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
-vim.o.clipboard = 'unnamedplus'
+vim.o.clipboard = "unnamedplus"
 
 vim.o.number = true
 vim.o.relativenumber = true
 
-vim.o.signcolumn = 'yes'
+vim.o.signcolumn = "yes"
 
 -- TABS & INDENTATION
-vim.o.tabstop = 4
-vim.o.shiftwidth = 4
+vim.o.tabstop = 2
+vim.o.shiftwidth = 2
 -- set tabs to spaces
--- opt.expandtab = true
+opt.expandtab = true
 opt.autoindent = true
 opt.wrap = false
 
@@ -37,5 +37,4 @@ vim.o.updatetime = 300
 
 vim.o.termguicolors = true
 
-vim.o.mouse = 'a'
-
+vim.o.mouse = "a"

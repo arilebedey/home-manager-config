@@ -1,15 +1,16 @@
 {
   programs.zsh = {
     enable = true;
-    zplug = {
+    antidote = {
       enable = true;
+      useFriendlyNames = true;
       plugins = [
-        { name = "zsh-users/zsh-autosuggestions"; } # Simple plugin installation
-        { name = "Aloxaf/fzf-tab"; } # Simple plugin installation
-        { name = "MichaelAquilina/zsh-you-should-use"; } # Simple plugin installation
-        { name = "zdharma-continuum/fast-syntax-highlighting"; } # Simple plugin installation
-# https://github.com/joshskidmore/zsh-fzf-history-search
-        { name = "joshskidmore/zsh-fzf-history-search"; }
+        "zsh-users/zsh-autosuggestions"
+        "Aloxaf/fzf-tab"
+        "MichaelAquilina/zsh-you-should-use"
+        "zdharma-continuum/fast-syntax-highlighting"
+        "joshskidmore/zsh-fzf-history-search"
+        "zsh-users/zsh-history-substring-search"
       ];
     };
     autosuggestion.enable = true;
@@ -18,6 +19,8 @@
     enableCompletion = true;
     initExtra = ''
       source /home/ari/.config/nix-config/home-manager/shell/zsh/fzf2nvim.sh
+      source /home/ari/.config/nix-config/home-manager/shell/zsh/functions.sh
+      source /home/ari/.config/nix-config/home-manager/shell/zsh/tmux_choose.sh
       bindkey "^[[1;5C" forward-word
       bindkey "^[[1;5D" backward-word
       bindkey '^H' backward-kill-word
@@ -27,7 +30,6 @@
       bindkey '^[[Z' autosuggest-accept
       # interupt sig
       stty intr ^P
-      # copy
       # Copy whole command
       cmd_to_clip () { wl-copy -n <<< $BUFFER }
       zle -N cmd_to_clip
@@ -68,6 +70,7 @@
       ll="lsd -l"; 
       lla="lsd -la";
       t="touch";
+      cs="tmux_choose_session";
     };
   };
 

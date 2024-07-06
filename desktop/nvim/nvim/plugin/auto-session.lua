@@ -3,7 +3,7 @@ local autosession = require("auto-session")
 
 autosession.setup({
 	auto_session_enabled = true,
-	auto_retore_enabled = true,
+	auto_retore_enabled = false,
 	auto_save_enabled = false,
 	log_level = "error",
 	auto_session_enable_last_session = false, -- Loads the last loaded session if session for cwd does not exist
@@ -16,3 +16,5 @@ autosession.setup({
 		previewer = false,
 	},
 })
+
+-- is further implemented with (see comment) 1. lualine 2. telescope

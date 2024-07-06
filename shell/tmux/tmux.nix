@@ -105,8 +105,10 @@ programs.tmux = {
           # taken care of and this functionality becomes redundant. But as I am not sure if I keep
           # using vim-startify or its auto restore feature and it do not conflict in any way that
           # I know of with set -g @resurrect-strategy-* I decided to keep it enabled for the time being.
-          set -g @resurrect-strategy-nvim 'session'
-          set -g @resurrect-strategy-vim 'session'
+
+          # Disabled
+          # set -g @resurrect-strategy-nvim 'session'
+          # set -g @resurrect-strategy-vim 'session'
 
           set -g @resurrect-capture-pane-contents 'on'
 
@@ -246,8 +248,8 @@ programs.tmux = {
     set-option -g renumber-windows on
 
     # Set easier window split keys
-    bind-key v split-window -h
-    bind-key h split-window -v
+    # bind-key v split-window -h
+    # bind-key h split-window -v
 
     # Enable mouse mode(tmux 2.1++)
     setw -g mouse on
@@ -257,7 +259,7 @@ programs.tmux = {
     bind-key -r s run-shell 'tmux popup -E -w 80% -h 80% "bash tmux-sessionizer"'
     bind-key g new-window 'lazygit; tmux kill-pane'
 
-    bind-key -r i run-shell 'tmux neww cheat-sh'
+    # bind-key -r i run-shell 'tmux neww cheat-sh'
     # Easier move of windows
     bind-key -r Home swap-window -t - \; select-window -t -
     bind-key -r End swap-window -t + \; select-window -t +
@@ -333,6 +335,15 @@ programs.tmux = {
     # evaluate/reload config
     bind-key e source-file ${generatedConfigFilePath} \; display-message "${generatedConfigFilePath} evaluated."
 
+    bind j resize-pane -D 5
+    bind k resize-pane -U 5
+    bind l resize-pane -R 5
+    bind h resize-pane -L 5
+
+    # Maximize a pane
+    bind -r m resize-pane -Z
+
+    bind K kill-server
    '';
   };
 
