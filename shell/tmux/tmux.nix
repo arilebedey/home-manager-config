@@ -1,42 +1,3 @@
-# { config, pkgs, inputs, ... }:
-# let
-#   resurrectDirPath = "~/.config/tmux/resurrect";
-# in
-# {
-#   programs.tmux = {
-#     enable = true;
-#     # enable = false;
-#     baseIndex = 1;
-#     extraConfig = ''
-#       ${builtins.readFile ./tmux.conf}
-#     '';
-#     plugins = with pkgs.tmuxPlugins; [
-#       vim-tmux-navigator
-#       {
-#         plugin = resurrect;
-#         extraConfig = ''
-#           set -g @resurrect-strategy-nvim 'session'
-#           set -g @resurrect-strategy-vim 'session'
-#
-#           set -g @resurrect-capture-pane-contents 'on'
-#
-#           # set -g @resurrect-dir ${resurrectDirPath}
-#           # set -g @resurrect-hook-post-save-all 'sed -i -E "s|(pane.*nvim\s*:)[^;]+;.*\s([^ ]+)$|\1nvim \2|" ${resurrectDirPath}/last'
-#         '';
-#       }
-#       {
-#         plugin = continuum;
-#         extraConfig = ''
-#          set -g @continuum-restore 'on'
-#          set -g @continuum-boot 'on'
-#          set -g @continuum-save-interval '10'
-#         '';
-#       }
-#       # weather
-#       # power-theme
-#     ];
-#   };
-# }
 { pkgs, ... }:
 let
   resurrectDirPath = "~/.config/tmux/resurrect";
@@ -59,7 +20,7 @@ in
 programs.tmux = {
   enable = true;
   secureSocket = false;
-  terminal = "screen-256color";
+  terminal = "xterm-256color";
   disableConfirmationPrompt = true;
   prefix = "C-a";
   keyMode = "vi";
@@ -344,6 +305,12 @@ programs.tmux = {
     bind -r m resize-pane -Z
 
     bind K kill-server
+
+    set -s extended-keys always
+    set -as terminal-features 'xterm*:extkeys'
+    bind-key -n C-h send-keys C-w
+    unbind-key C-k
+    bind-key -n C-k send-keys C-u
    '';
   };
 

@@ -63,6 +63,7 @@ in
     pkgs.discord
     pkgs.htop
     pkgs.yt-dlp
+    pkgs.imagemagick
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -136,6 +137,7 @@ in
     extraConfig = ''
       # vim:fileencoding=utf-8:foldmethod=marker
       enable_audio_bell no
+      # map ctrl+backspace send_text all \x1b[127;5u
 
       # MAPPINGS
       map ctrl+c  copy_to_clipboard
@@ -143,6 +145,8 @@ in
       # THEME
       include Batman.conf
       cursor_blink_interval 0
+
+      # map ctrl+backspace delete_word_left
     '';
   };
 

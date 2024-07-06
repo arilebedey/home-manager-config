@@ -4,6 +4,11 @@ local kms = vim.keymap.set
 
 -- MISC
 kms("n", "vV", "Vp")
+-- Insert mode mapping
+vim.api.nvim_set_keymap("i", "<C-BS>", "<C-W>", { noremap = true, silent = true })
+
+-- Command-line mode mapping
+vim.api.nvim_set_keymap("c", "<C-BS>", "<C-W>", { noremap = true, silent = true })
 
 -- FILES
 kms("n", "<leader>ia", ":wq<CR>")

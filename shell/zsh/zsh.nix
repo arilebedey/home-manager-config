@@ -18,20 +18,22 @@
     syntaxHighlighting.enable = true;
     enableCompletion = true;
     initExtra = ''
+      WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
       source /home/ari/.config/nix-config/home-manager/shell/zsh/fzf2nvim.sh
       source /home/ari/.config/nix-config/home-manager/shell/zsh/functions.sh
       source /home/ari/.config/nix-config/home-manager/shell/zsh/tmux_choose.sh
+      bindkey "^E" forward-word
       bindkey "^[[1;5C" forward-word
       bindkey "^[[1;5D" backward-word
 
       # Control + Backspace Setting
-      WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
       bindkey '^H' backward-kill-word
+      bindkey '^B' backward-kill-word
 
       bindkey '^[[A' up-line-or-search                                                
       bindkey '^[[B' down-line-or-search
 
-      # s+tab
+      # Shift-Tab
       bindkey '^[[Z' autosuggest-accept
 
       # interupt sig
@@ -41,13 +43,14 @@
       cmd_to_clip () { wl-copy -n <<< $BUFFER }
       zle -N cmd_to_clip
       bindkey '^Y' cmd_to_clip
+
       # map ctrl+c  copy_to_clipboard # in kitty.conf
+      bindkey '^K' clear-screen
+      bindkey '^U' clear-screen
     '';
     shellGlobalAliases = {
       c="zoxide";
-      h="cd ~";
       n="nvim";
-      nb="nvim ~/.bashrc";
       sz="source ~/.zshrc";
       l="ranger";
       hi="systemctl hibernate";
@@ -64,8 +67,8 @@
       hy="nvim ~/.config/hypr/hyprland.conf";
       gl="nvim ~/Code/zmk-linux-build-script/urob-zmk-config/config/my.keymap";
       se="sudoedit";
-      ho="nvim /home/ari/.config/nix-config/home-manager/home.nix";
-      hos="home-manager switch --flake /home/ari/.config/nix-config/home-manager/";
+      h="nvim /home/ari/.config/nix-config/home-manager/home.nix";
+      hs="home-manager switch --flake /home/ari/.config/nix-config/home-manager/";
       ba="nvim ~/.bash_history ";
       lout="hyprctl dispatch exit";
       ubu="/home/ari/Code/zmk-linux-build-script/urob-zmk-config/scripts/zmk_build.sh";
