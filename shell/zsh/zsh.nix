@@ -23,13 +23,20 @@
       source /home/ari/.config/nix-config/home-manager/shell/zsh/tmux_choose.sh
       bindkey "^[[1;5C" forward-word
       bindkey "^[[1;5D" backward-word
+
+      # Control + Backspace Setting
+      WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
       bindkey '^H' backward-kill-word
+
       bindkey '^[[A' up-line-or-search                                                
       bindkey '^[[B' down-line-or-search
+
       # s+tab
       bindkey '^[[Z' autosuggest-accept
+
       # interupt sig
       stty intr ^P
+
       # Copy whole command
       cmd_to_clip () { wl-copy -n <<< $BUFFER }
       zle -N cmd_to_clip
@@ -68,7 +75,7 @@
       nz="nvim ~/.config/nix-config/home-manager/shell/zsh.nix";
       mk="mkdir";  
       ll="lsd -l"; 
-      lla="lsd -la";
+      la="lsd -la";
       t="touch";
       cs="tmux_choose_session";
     };

@@ -129,12 +129,29 @@ in
   gtk.enable = true;
   qt.enable = true;
 
+  programs.kitty = {
+    enable = true;
+    font.name = "Hack";
+    font.size = 22;
+    extraConfig = ''
+      # vim:fileencoding=utf-8:foldmethod=marker
+      enable_audio_bell no
+
+      # MAPPINGS
+      map ctrl+c  copy_to_clipboard
+
+      # THEME
+      include Batman.conf
+      cursor_blink_interval 0
+    '';
+  };
+
   xdg.desktopEntries.davinci-resolve-studio = {
     name = "Davinci Resolve Studio";
     # desktopName = "resolve";
     prefersNonDefaultGPU = true;
     exec = "davinci-resolve-studio %u";
-    # exec = "DRI_PRIME=1 davinci-resolve %u";
+    # exec = "QT_SCALE_FACTOR=1.5 DRI_PRIME=1 davinci-resolve-studio %u";
     terminal = false;
     type = "Application";
     icon = "/home/ari/Downloads/DaVinci_Resolve_Studio.png";
