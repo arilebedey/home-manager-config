@@ -137,7 +137,7 @@ in
     extraConfig = ''
       # vim:fileencoding=utf-8:foldmethod=marker
       enable_audio_bell no
-      # map ctrl+backspace send_text all \x1b[127;5u
+      confirm_os_window_close 2
 
       # MAPPINGS
       map ctrl+c  copy_to_clipboard

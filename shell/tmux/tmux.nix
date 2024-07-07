@@ -217,8 +217,8 @@ programs.tmux = {
 
     set-option -g status-position top
 
-    bind-key -r s run-shell 'tmux popup -E -w 80% -h 80% "bash tmux-sessionizer"'
-    bind-key g new-window 'lazygit; tmux kill-pane'
+    # bind-key -r s run-shell 'tmux popup -E -w 80% -h 80% "bash tmux-sessionizer"'
+    # bind-key g new-window 'lazygit; tmux kill-pane'
 
     # bind-key -r i run-shell 'tmux neww cheat-sh'
     # Easier move of windows
@@ -248,7 +248,7 @@ programs.tmux = {
 
     # A more consistent(with i3wm) and ergonomic(qwerty) to focus on a pane
     unbind z
-    bind-key f resize-pane -Z
+    # bind-key f resize-pane -Z
 
     # quick yank of the text in the current line without going into selection
 
@@ -305,13 +305,20 @@ programs.tmux = {
     bind -r m resize-pane -Z
 
     bind K kill-server
+    bind K kill-server
 
     set -s extended-keys always
     set -as terminal-features 'xterm*:extkeys'
     bind-key -n C-h send-keys C-w
     unbind-key C-k
     bind-key -n C-k send-keys C-u
-   '';
+
+    bind f kill-pane
+    bind g new-window
+
+    # for neovim esc lag suppression
+    set -sg escape-time 10
+    '';
   };
 
 }
