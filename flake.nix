@@ -17,6 +17,9 @@
     # vim-maximizer
     plugin-maximizer.url = "github:szw/vim-maximizer";
     plugin-maximizer.flake = false;
+    # nvim-silicon
+    plugin-silicon.url = "github:michaelrommel/nvim-silicon";
+    plugin-silicon.flake = false;
   };
 
   outputs = { nixpkgs, home-manager, nvim-nix, ... }@inputs:

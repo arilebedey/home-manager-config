@@ -21,6 +21,7 @@ programs.tmux = {
   enable = true;
   secureSocket = false;
   terminal = "xterm-256color";
+  # terminal = "xterm-kitty";
   disableConfirmationPrompt = true;
   prefix = "C-a";
   keyMode = "vi";
@@ -199,7 +200,7 @@ programs.tmux = {
     set -g status-left-length 30
 
     # don't detach from tmux once last window of session is closed and instead
-    # attach to another existing session if one exist.
+    # attach to another existing session if one exists.
     set-option -g detach-on-destroy off
 
     # don't rename windows automatically
@@ -318,6 +319,12 @@ programs.tmux = {
 
     # for neovim esc lag suppression
     set -sg escape-time 10
+
+    # Unbind the original prefix-ctrl-s if it is set
+    # unbind-key C-s
+
+    # Bind prefix-s to save the session
+    bind-key s save-buffer
     '';
   };
 

@@ -163,12 +163,29 @@
         "type": "github"
       }
     },
+    "plugin-silicon": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1717109319,
+        "narHash": "sha256-MI99fgu2QJ1nXLVMixLjNcdWGQRbR4qePwN6HoDxukY=",
+        "owner": "michaelrommel",
+        "repo": "nvim-silicon",
+        "rev": "b305ad8a45210f0dc8bbba1494dea6af072c0ed2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "michaelrommel",
+        "repo": "nvim-silicon",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "nvim-nix": "nvim-nix",
-        "plugin-maximizer": "plugin-maximizer"
+        "plugin-maximizer": "plugin-maximizer",
+        "plugin-silicon": "plugin-silicon"
       }
     },
     "systems": {

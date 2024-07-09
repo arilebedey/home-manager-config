@@ -8,6 +8,10 @@
             name = "vim-maximizer";
             src = inputs.plugin-maximizer;
           };
+          own-silicon-vim = prev.vimUtils.buildVimPlugin {
+            name = "nvim-silicon";
+            src = inputs.plugin-silicon;
+          };
         };
       })
     ];
@@ -189,6 +193,11 @@
       {
         plugin = own-maximize-vim;
         config = toLuaFile ./nvim/plugin/vim-maximizer.lua;
+      }
+
+      {
+        plugin = own-silicon-vim;
+        config = toLuaFile ./nvim/plugin/nvim-silicon.lua;
       }
 
       nvim-ts-autotag

@@ -64,6 +64,8 @@ in
     pkgs.htop
     pkgs.yt-dlp
     pkgs.imagemagick
+    pkgs.nsxiv
+    pkgs.silicon
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
