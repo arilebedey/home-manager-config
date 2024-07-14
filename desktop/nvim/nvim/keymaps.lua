@@ -13,6 +13,7 @@ vim.api.nvim_set_keymap("c", "<C-BS>", "<C-W>", { noremap = true, silent = true 
 -- FILES
 kms("n", "<leader>ia", ":wq<CR>")
 kms("n", "<leader>ii", ":w<CR>")
+kms("i", "<leader>ii", "<ESC>:w<CR>i")
 kms("n", "<leader>,,", ":qa<CR>")
 kms("n", "<leader>,u", ":q!<CR>")
 
@@ -115,3 +116,11 @@ function insertFullPath()
 end
 
 vim.keymap.set("n", "<leader>pc", insertFullPath, { noremap = true, silent = true })
+
+-- Key mappings for Ctrl-A to select all text
+vim.api.nvim_set_keymap(
+	"n",
+	"<C-A>",
+	':lua vim.api.nvim_command("normal! ggVG")<CR>',
+	{ noremap = true, silent = true }
+)

@@ -325,6 +325,9 @@ programs.tmux = {
 
     # Bind prefix-s to save the session
     bind-key s save-buffer
+
+    # Send C-a
+    bind-key -T prefix a send-prefix
     '';
   };
 
