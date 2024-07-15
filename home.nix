@@ -67,6 +67,12 @@ in
     pkgs.nsxiv
     pkgs.silicon
     pkgs.trash-cli
+    pkgs.hyprshot
+    pkgs.jq
+    pkgs.grim
+    pkgs.inotify-tools
+    pkgs.libnotify
+    # pkgs.mako
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -164,6 +170,8 @@ in
     icon = "/home/ari/Downloads/DaVinci_Resolve_Studio.png";
     # mimeTypes="x-scheme-handler/x-resolveproj";
   };
+
+  # news.display = "show";
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

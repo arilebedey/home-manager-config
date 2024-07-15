@@ -3,6 +3,7 @@ vim.g.mapleader = " "
 local kms = vim.keymap.set
 
 -- MISC
+vim.cmd([[set iskeyword-=45]])
 kms("n", "vV", "Vp")
 -- Insert mode mapping
 vim.api.nvim_set_keymap("i", "<C-BS>", "<C-W>", { noremap = true, silent = true })
@@ -13,7 +14,7 @@ vim.api.nvim_set_keymap("c", "<C-BS>", "<C-W>", { noremap = true, silent = true 
 -- FILES
 kms("n", "<leader>ia", ":wq<CR>")
 kms("n", "<leader>ii", ":w<CR>")
-kms("i", "<leader>ii", "<ESC>:w<CR>i")
+-- kms("i", "<leader>ii", "<ESC>:w<CR>i")
 kms("n", "<leader>,,", ":qa<CR>")
 kms("n", "<leader>,u", ":q!<CR>")
 
