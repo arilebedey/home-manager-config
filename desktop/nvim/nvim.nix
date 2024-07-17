@@ -265,6 +265,12 @@
         plugin = gitsigns-nvim;
         config = toLuaFile ./nvim/plugin/gitsigns.lua;
       }
+      
+      {
+        plugin = harpoon2;
+        config = toLuaFile ./nvim/plugin/harpoon2.lua;
+      }
+
 
     ];
   };

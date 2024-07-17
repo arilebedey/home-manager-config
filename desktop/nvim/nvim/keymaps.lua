@@ -5,8 +5,12 @@ local kms = vim.keymap.set
 -- MISC
 vim.cmd([[set iskeyword-=45]])
 kms("n", "vV", "Vp")
+kms("n", "Vv", "Vp")
 -- Insert mode mapping
 vim.api.nvim_set_keymap("i", "<C-BS>", "<C-W>", { noremap = true, silent = true })
+-- Remap r to Ctrl-r in normal mode
+vim.api.nvim_set_keymap("n", "r", "<C-r>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("v", "r", "<C-r>", { noremap = true, silent = true })
 
 -- Command-line mode mapping
 vim.api.nvim_set_keymap("c", "<C-BS>", "<C-W>", { noremap = true, silent = true })

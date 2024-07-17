@@ -72,7 +72,7 @@ in
     pkgs.grim
     pkgs.inotify-tools
     pkgs.libnotify
-    # pkgs.mako
+    pkgs.telegram-desktop
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -105,6 +105,10 @@ in
     # '';
   };
 
+  home.sessionVariables = {
+     QT_SCREEN_SCALE_FACTORS = "1";
+    QT_SCALE_FACTOR = "1.5";
+  };
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. If you don't want to manage your shell through Home
   # Manager then you have to manually source 'hm-session-vars.sh' located at
