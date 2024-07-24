@@ -42,7 +42,6 @@ in
     pkgs.bemoji
     pkgs.zinit
     pkgs.element-desktop
-    pkgs.hyprpicker
     # pkgs.nvim-pkg
     pkgs.vimPlugins.nvchad
     pkgs.ncdu
@@ -50,7 +49,6 @@ in
     pkgs.android-studio
     pkgs.libpng
     #
-    pkgs.jetbrains.idea-community
     pkgs.unzip
     pkgs.mediainfo
     pkgs.obs-studio
@@ -73,6 +71,11 @@ in
     pkgs.inotify-tools
     pkgs.libnotify
     pkgs.telegram-desktop
+    pkgs.distrobox
+    pkgs.docker
+    pkgs.watchman
+    pkgs.nodePackages_latest.expo-cli
+    pkgs.nodePackages_latest.eas-cli
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -87,9 +90,12 @@ in
     #   echo "Hello, ${config.home.username}!"
     # '')
   ];
+
+  # First time Android Studio setup
   home.extraProfileCommands = ''
    ln -s ${pkgs.jdk17}/bin/java $out/bin/java17
   '';
+
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
@@ -161,6 +167,12 @@ in
 
       # map ctrl+backspace delete_word_left
     '';
+  };
+
+  programs.direnv = {
+    enable = true;
+    enableZshIntegration = true;
+    nix-direnv.enable = true;
   };
 
   xdg.desktopEntries.davinci-resolve-studio = {

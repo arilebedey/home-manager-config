@@ -44,7 +44,7 @@
       typescript
       vscode-langservers-extracted
       tailwindcss-language-server
-      nodePackages_latest.pyright
+      # nodePackages_latest.pyright
       nodePackages_latest.prettier
       stylua
       black
