@@ -3,9 +3,9 @@ vim.g.mapleader = " "
 local kms = vim.keymap.set
 
 -- MISC
-vim.cmd([[set iskeyword-=45]])
 kms("n", "vV", "Vp")
 kms("n", "Vv", "Vp")
+
 -- Insert mode mapping
 vim.api.nvim_set_keymap("i", "<C-BS>", "<C-W>", { noremap = true, silent = true })
 -- Remap r to Ctrl-r in normal mode
@@ -158,3 +158,16 @@ vim.api.nvim_set_keymap(
 -- vim.keymap.set("n", "<C-]>", function()
 -- 	harpoon:list():next()
 -- end)
+--
+--
+
+-- Define a function to copy the entire file without moving the cursor
+local function copy_entire_file()
+	local current_pos = vim.api.nvim_win_get_cursor(0)
+	vim.cmd("normal! ggVGy")
+	vim.api.nvim_win_set_cursor(0, current_pos)
+end
+-- Make the function available globally
+_G.copy_entire_file = copy_entire_file
+-- Create a key mapping for copying the entire file with 'yyy'
+vim.api.nvim_set_keymap("n", "yt", ":lua copy_entire_file()<CR>", { noremap = true, silent = true })
